@@ -1,8 +1,7 @@
-# graduation
-Icr,Ocr and Blog
-项目代码结构简易说明
-src/main/java
-cn.xsshome.mvcdo
+# graduation 
+       项目代码结构简易说明
+       src/main/java
+       cn.xsshome.mvcdo
        ├── common                                //相关常量类   
        ├── controller                            
        │       └── ai                            //AI模块Controller层       
@@ -31,7 +30,6 @@ cn.xsshome.mvcdo
        │       └── system                        //系统管理模块Service层  
        ├── util                                     //相关工具类
        └── vo                                    //接口返回的json实体对象
-       
        项目配置文件说明
        src/main/resources
        ├── spring-mvc.xml                        //注解配置 静态资源 拦截等配置  

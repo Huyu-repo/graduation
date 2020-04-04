@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html lang="zh-cn">
   <head>
     <base href="<%=basePath%>">
-    <title>糊鱼-图像识别</title>
+    <title>糊鱼-文字识别</title>
     <jsp:include page="/common/header.jsp"></jsp:include>
     <jsp:include page="/common/blog_header.jsp"></jsp:include>
 	<link rel="stylesheet" href="${ctx }/css/baidu/vendor.style.css">
@@ -31,8 +31,8 @@ var _hmt = _hmt || [];
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 					<div class="site-heading">
-						<h1>图像识别<span><img src="${ctx}/image/blog/wcsqrcode.jpg" title="糊鱼图像识别专属码" style="width:140px;"/></span></h1>
-						<span class="subheading">分析图像信息，所属种类等属性 更多体验 微信扫描上图小程序专属码</span>
+						<h1>文字识别<span><img src="${ctx}/image/blog/wcsqrcode.jpg" title="糊鱼图像识别专属码" style="width:140px;"/></span></h1>
+						<span class="subheading">识别图片文字 更多体验 微信扫描上图小程序专属码</span>
 					</div>
 				</div>
 			</div>
@@ -93,18 +93,17 @@ var _hmt = _hmt || [];
         		return;
         	}
 			var option = {
-                url: "${ctx}/bdicr/detect" ,//url
+                url: "${ctx}/bdocr/detect" ,//url
 			 	type: "POST",//方法类型
 			 	dataType: "json",//预期服务器返回的数据类型
 				success : function(result) {
 						if(result.code==0){
 							var griddata;
-							// griddata = "<table class='data-view-table'><tr><th>性别</th><td>"+result.gender+"</td></tr><tr><th>颜值</th><td>"+result.beauty+"</td></tr><tr><th>年龄</th><td>"+result.age+"</td></tr><tr><th>表情</th><td>"+result.expression+"</td></tr><tr><th>眼镜</th><td>"+result.glasses+"</td></tr><tr><th>人种</th><td>"+result.raceType+"</td></tr><tr><th>脸型</th><td>"+result.faceShape+"</td></tr></table>";
-                            griddata = "<table class='data-view-table'><tr><th>相关信息</th><td>"+result.toString();
+                            griddata = "<table class='data-view-table'><tr><th>相关文字</th><td>"+result.toString()+"</td></tr></table>";
                             $("#resultFace").html(griddata);
 						}else{
 							var griddata;
-							griddata ="<h1 class='h1msg'>"+result.msg+"</h1>";							
+							griddata ="<table class='data-view-table'><tr><th>相关文字</th><td>"+result.toString()+"</td></tr></table>";
 							$("#resultFace").html(griddata);
 						}
 					}

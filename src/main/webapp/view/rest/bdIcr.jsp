@@ -93,7 +93,7 @@ var _hmt = _hmt || [];
         		return;
         	}
 			var option = {
-                url: "${ctx}/rest/icr/detect?clientType=wsc" ,//url
+                url: "${ctx}/bdicr/detect" ,//url
 			 	type: "POST",//方法类型
 			 	dataType: "json",//预期服务器返回的数据类型
 				success : function(result) {

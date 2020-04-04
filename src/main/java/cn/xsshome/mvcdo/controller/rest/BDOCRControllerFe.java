@@ -1,31 +1,28 @@
-package cn.xsshome.mvcdo.controller.ai;
+package cn.xsshome.mvcdo.controller.rest;
 
-import java.util.List;
-import java.util.Map;
+import java.io.File;
+import java.util.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import cn.xsshome.mvcdo.service.ai.baidu.BDOCRService;
+import cn.xsshome.mvcdo.util.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import cn.xsshome.mvcdo.common.AIConstant;
 import cn.xsshome.mvcdo.pojo.ai.baidu.dbo.BDOCRBankCardDO;
 import cn.xsshome.mvcdo.pojo.ai.baidu.dbo.BDOCRGeneralDO;
 import cn.xsshome.mvcdo.pojo.ai.baidu.dbo.BDOCRIdCardDO;
 import cn.xsshome.mvcdo.service.ai.baidu.BDOCRDetectService;
-import cn.xsshome.mvcdo.util.PageUtils;
-import cn.xsshome.mvcdo.util.Query;
-import cn.xsshome.mvcdo.util.WholeResponse;
+import org.springframework.web.multipart.MultipartFile;
+
 /**
  *
  * @author 糊鱼
@@ -34,10 +31,44 @@ import cn.xsshome.mvcdo.util.WholeResponse;
 @Controller
 @RequestMapping(value="/bdocr")
 @Scope("prototype")
-public class BDOCRController {
-	private static Logger logger = LoggerFactory.getLogger(BDOCRController.class);
+public class BDOCRControllerFe {
+	private static Logger logger = LoggerFactory.getLogger(BDOCRControllerFe.class);
 	@Autowired
 	private BDOCRDetectService bdocrDetectService;
+	@Autowired
+	private BDOCRService bdocrService;
+	/**
+	 * Ocr页面
+	 * @param request request对象
+	 * @param response response对象
+	 * @return 页面
+	 */
+	@RequestMapping(value = "/detect",method = {RequestMethod.POST})
+	public String uploadImageClassify(@RequestParam(value = "file") MultipartFile file, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		// 进行BASE64位编码
+		File newFile = MultipartFileToFile.multipartFileToFile(file);
+		String imageBase = BASE64.encodeImgageToBase64(newFile);
+		imageBase = imageBase.replaceAll("\r\n", "");
+		imageBase = imageBase.replaceAll("\\+", "%2B");
+		// 百度云的文字识别接口,后面参数为获取到的token
+		String httpUrl = "https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic?access_token=" + bdocrService.getAuth();
+		String httpArg = "detect_direction=false&image=" + imageBase;
+		logger.info("imageBase"+imageBase);
+		logger.info("bdocrService.getAuth()"+bdocrService.getAuth());
+		String jsonResult = PictureUtil.request(httpUrl, httpArg);
+		logger.info("=====接口返回的内容:"+jsonResult);
+//		HashMap<String, String> map = getHashMapByJson(jsonResult);
+//		Collection<String> values = map.values();
+//		Iterator<String> iterator2 = ((Collection) values).iterator();
+//		while (iterator2.hasNext()) {
+//			logger.info("iterator2.next() + ", "");
+//		}
+
+		return jsonResult;
+
+	}
+
+
 	/**
 	 * 跳转百度文字识别管理页面 
 	 * @param request request对象

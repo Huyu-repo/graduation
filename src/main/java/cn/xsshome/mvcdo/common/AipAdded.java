@@ -12,8 +12,8 @@ import com.baidu.aip.util.Base64Util;
 import com.baidu.aip.util.Util;
 /**
  * 
- * @author 小帅丶
- * @date 2018年5月15日
+ * @author 糊鱼
+ * @date 2020年4月2日
  * <p>Description: sdk未加入的接口封装</p>
  */
 public class AipAdded extends AipImageClassify{

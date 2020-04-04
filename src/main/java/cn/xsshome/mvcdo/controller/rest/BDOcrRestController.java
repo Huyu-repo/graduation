@@ -55,7 +55,7 @@ public class BDOcrRestController {
 	@Autowired
 	private BDOCRDetectService bdocrDetectService;
 	/**
-	 * 文字识别网页上传
+	 * 文字识别微信上传
 	 * @param request request对象
 	 * @param response response对象
 	 * @return 页面

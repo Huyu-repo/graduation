@@ -1,9 +1,12 @@
 package cn.xsshome.mvcdo.controller.rest;
 
+import cn.xsshome.mvcdo.healthai.util.JsonUtil;
 import cn.xsshome.mvcdo.service.ai.baidu.BDICRService;
 import cn.xsshome.mvcdo.util.BASE64;
 import cn.xsshome.mvcdo.util.MultipartFileToFile;
 import cn.xsshome.mvcdo.util.PictureUtil;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,14 +15,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
-@RequestMapping(value="/bdicr")
+@RequestMapping(value="rest/bdicr")
 @Scope("prototype")
 public class BDICRControllerFe {
     private static Logger logger = LoggerFactory.getLogger(BDOCRControllerFe.class);
@@ -33,7 +39,8 @@ public class BDICRControllerFe {
      * @return 页面
      */
     @RequestMapping(value = "/detect",method = {RequestMethod.POST})
-    public String uploadImageClassify(@RequestParam(value = "file") MultipartFile file, HttpServletRequest request, HttpServletResponse response) throws Exception {
+    @ResponseBody
+    public JSONObject uploadImageClassify(@RequestParam(value = "file") MultipartFile file, HttpServletRequest request, HttpServletResponse response) throws Exception {
         // 进行BASE64位编码
         File newFile = MultipartFileToFile.multipartFileToFile(file);
         String imageBase = BASE64.encodeImgageToBase64(newFile);
@@ -43,9 +50,9 @@ public class BDICRControllerFe {
         String httpUrl = "https://aip.baidubce.com/rest/2.0/image-classify/v2/advanced_general?access_token=" + bdicrService.getAuth();
         String httpArg = "image=" + imageBase;
         logger.info("bdicrService.getAuth()"+bdicrService.getAuth());
-        String jsonResult = PictureUtil.request(httpUrl, httpArg);
-        logger.info("=====接口返回的内容:"+jsonResult);
-
+        String result = PictureUtil.request(httpUrl, httpArg);
+        logger.info("=====接口返回的内容:"+result);
+        JSONObject jsonResult = JSON.parseObject(result);
         return jsonResult;
 
     }

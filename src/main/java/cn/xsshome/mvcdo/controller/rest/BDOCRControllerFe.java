@@ -9,6 +9,8 @@ import javax.servlet.http.HttpSession;
 
 import cn.xsshome.mvcdo.service.ai.baidu.BDOCRService;
 import cn.xsshome.mvcdo.util.*;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +31,7 @@ import org.springframework.web.multipart.MultipartFile;
  * <p>Description: 文字识别管理模块</p>
  */
 @Controller
-@RequestMapping(value="/bdocr")
+@RequestMapping(value="rest/bdocr")
 @Scope("prototype")
 public class BDOCRControllerFe {
 	private static Logger logger = LoggerFactory.getLogger(BDOCRControllerFe.class);
@@ -44,7 +46,8 @@ public class BDOCRControllerFe {
 	 * @return 页面
 	 */
 	@RequestMapping(value = "/detect",method = {RequestMethod.POST})
-	public String uploadImageClassify(@RequestParam(value = "file") MultipartFile file, HttpServletRequest request, HttpServletResponse response) throws Exception {
+	@ResponseBody
+	public JSONObject uploadImageClassify(@RequestParam(value = "file") MultipartFile file, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// 进行BASE64位编码
 		File newFile = MultipartFileToFile.multipartFileToFile(file);
 		String imageBase = BASE64.encodeImgageToBase64(newFile);
@@ -55,8 +58,10 @@ public class BDOCRControllerFe {
 		String httpArg = "detect_direction=false&image=" + imageBase;
 		logger.info("imageBase"+imageBase);
 		logger.info("bdocrService.getAuth()"+bdocrService.getAuth());
-		String jsonResult = PictureUtil.request(httpUrl, httpArg);
-		logger.info("=====接口返回的内容:"+jsonResult);
+		String result = PictureUtil.request(httpUrl, httpArg);
+		logger.info("=====接口返回的内容:"+result);
+		JSONObject jsonResult = JSON.parseObject(result);
+
 //		HashMap<String, String> map = getHashMapByJson(jsonResult);
 //		Collection<String> values = map.values();
 //		Iterator<String> iterator2 = ((Collection) values).iterator();

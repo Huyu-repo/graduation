@@ -26,13 +26,13 @@ var _hmt = _hmt || [];
   </head>
   <body>
    <jsp:include page="/view/blog/index/include_blog_nav.jsp"></jsp:include>
-   	<header class="intro-header" style="background-image: url('https://wximage-1251091977.cos.ap-beijing.myqcloud.com/xai/home-bg.jpeg');margin-bottom:-80px;">
+   	<header class="intro-header" style="background-image: url('${ctx}/image/blog/banner.jpg');margin-bottom:-80px;">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 					<div class="site-heading">
 						<h1>人脸检测<span><img src="${ctx}/image/blog/wcsqrcode.jpg" title="糊鱼图像识别专属码" style="width:140px;"/></span></h1>
-						<span class="subheading">分析人脸的年龄、颜值等属性 更多体验 微信扫描上图小程序专属码</span>
+						<span class="subheading">识别图像种类等属性 更多体验 微信扫描上图小程序专属码</span>
 					</div>
 				</div>
 			</div>

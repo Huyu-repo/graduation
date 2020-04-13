@@ -5,6 +5,7 @@ import com.alibaba.fastjson.serializer.SerializeConfig;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.serializer.SimpleDateFormatSerializer;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -34,8 +35,8 @@ public class JsonUtil {
     }
 
     @SuppressWarnings("unchecked")
-    public static Map<String, Object> fromJson(String json) {
-        return (Map<String, Object>) JSON.parse(json);
+    public static HashMap<String, String> fromJson(String json) {
+        return (HashMap<String, String>) JSON.parse(json);
     }
 
 

@@ -3,6 +3,7 @@ D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\controller\system\LoginController.j
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\dao\system\RoleMenuDao.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\vo\BDOCRGeneralResponse.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\pojo\ai\baidu\dbo\BDOCRBankCardDO.java
+D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\util\MultipartFileToFile.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\controller\system\UserController.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\controller\system\RoleController.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\service\ai\baidu\impl\BDICRDetectServiceImpl.java
@@ -12,6 +13,7 @@ D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\util\QQSendEmailUtil.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\controller\ai\WeChatController.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\controller\rest\TAIRestController.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\vo\BDOCRBankCardResponse.java
+D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\controller\rest\BDICRControllerFe.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\pojo\ai\baidu\po\BDICRDishBean.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\pojo\ai\tencent\po\YouTuFaceBean.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\vo\AccessTokenWX.java
@@ -31,6 +33,7 @@ D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\controller\ai\BDICRController.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\healthai\AuthHelper.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\service\ai\baidu\impl\BDOCRDetectServiceImpl.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\util\imageprocess\NeuQuant.java
+D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\service\ai\baidu\BDICRService.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\vo\BDConstant.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\service\blog\impl\ContentServiceImpl.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\healthai\util\Base64Util.java
@@ -47,6 +50,7 @@ D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\common\Tree.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\vo\BdFaceResponse.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\controller\blog\BlogController.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\controller\rest\HealthAIRestController.java
+D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\util\PictureUtil.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\controller\system\DeptController.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\pojo\ai\baidu\po\BDOCRGeneralBean.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\service\ai\baidu\impl\BDFaceDetectServiceImpl.java
@@ -68,6 +72,7 @@ D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\dao\system\WechatUserInfoDao.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\util\WeChatConstant.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\service\ai\fpp\FPPFaceService.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\controller\ai\YouTuFuseController.java
+D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\service\ai\baidu\impl\BDOCRServiceImpl.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\interceptor\BDFactory.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\dao\ai\baidu\BDICRDetectDao.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\dao\ai\baidu\BDOCRDetectDao.java
@@ -76,13 +81,13 @@ D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\pojo\system\MenuDO.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\healthai\SignHelper.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\util\HttpUtil.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\vo\ApiWxJSCODE2SESSIONResponseBean.java
+D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\controller\rest\BDOCRControllerFe.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\healthai\util\HttpClientUtil.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\service\ai\fpp\impl\FPPFaceServiceImpl.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\pojo\system\WeChatUserInfoDO.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\util\Query.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\util\WholeResponse.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\healthai\util\GenericsUtil.java
-D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\controller\ai\BDOCRController.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\controller\blog\ContentController.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\healthai\enums\Version.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\pojo\ai\tencent\po\HandWritingOCRBean.java
@@ -106,6 +111,7 @@ D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\service\ai\tencent\YouTuFuseService
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\pojo\ai\baidu\dbo\BDICRDishDO.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\dao\ai\tencent\YouTuFuseDao.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\interceptor\GetAccessTokenJob.java
+D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\util\BASE64.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\vo\RestResponse.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\controller\rest\FaceMergeRestController.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\vo\BaseBean.java
@@ -122,6 +128,7 @@ D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\util\youtu\HMACSHA1.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\common\AIConstant.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\pojo\system\DeptDO.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\pojo\ai\tencent\dbo\YouTuDetectFuseDO.java
+D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\service\ai\baidu\BDOCRService.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\pojo\blog\ContentDO.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\pojo\system\RoleMenuDO.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\util\imageprocess\LZWEncoder.java
@@ -140,6 +147,7 @@ D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\service\system\DeptService.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\healthai\TokenHealthAiClient.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\service\system\MenuService.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\pojo\ai\baidu\dbo\BDOCRGeneralDO.java
+D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\service\ai\baidu\impl\BDICRServiceImpl.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\service\ai\baidu\BDICRDetectService.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\service\system\impl\WechatUserInfoServiceImpl.java
 D:\ideapj\xai\src\main\java\cn\xsshome\mvcdo\service\system\RoleService.java

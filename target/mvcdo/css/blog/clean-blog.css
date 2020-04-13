@@ -85,6 +85,7 @@ hr.small {
   .navbar-custom .nav li a:hover,
   .navbar-custom .nav li a:focus {
     color: #68EE68;
+    background-color: #2f96b4;
   }
 }
 @media only screen and (min-width: 1170px) {
@@ -125,6 +126,7 @@ hr.small {
   .navbar-custom.is-fixed .nav li a:focus {
     color: #0085a1;
   }
+
   .navbar-custom.is-visible {
     /* if the user changes the scrolling direction, we show the header */
     -webkit-transform: translate3d(0, 100%, 0);
@@ -374,6 +376,7 @@ form .row:first-child .floating-label-form-group {
   background-color: #404040;
   cursor: not-allowed;
 }
+
 ::-moz-selection {
   color: white;
   text-shadow: none;

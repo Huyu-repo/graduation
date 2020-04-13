@@ -100,7 +100,7 @@
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
     <div class="container">
         <div class="navbar-header page-scroll">
-            <a class="navbar-brand" href="${ctx}/index.html" style="font-size: 24px;">后台</a>
+            <a class="navbar-brand" href="${ctx}/login.jsp" style="font-size: 24px;">后台</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">

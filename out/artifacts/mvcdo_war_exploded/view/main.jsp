@@ -54,7 +54,8 @@
                             <li><a onclick="personal();" href="#">信箱</a>
                             </li>
                             <li class="divider"></li>
-                            <li><a href="<%=basePath%>jlpay/loginout">安全退出</a>
+                            <li><a href="<%=basePath%>">安全退出</a>
+<%--                            <li><a href="<%=basePath%>jlpay/loginout">安全退出</a>--%>
                             </li>
                         </ul>
                     </div>

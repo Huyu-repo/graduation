@@ -108,7 +108,7 @@
                 console.log(data);
                 var griddata = "<table class='data-view-table'>";
                 for (var i = 0; i < data.result.length; i++) {
-                    griddata += "<tr>" + "<td>" +"相似度"+"</td>"+"<td>"+data.result[i].score+"</td>"+"<td>名称</td>"+data.result[i].name + "</tr>";
+                    griddata += "<tr>" + "<td>" +"相似度"+"</td>"+"<td>"+data.result[i].score+"</td>"+"<td>名称</td>"+"<td>"+data.result[i].name +"</td>"+ "</tr>";
                 }
                 griddata = griddata + "</table>";
                 $("#resultIcr").html(griddata);

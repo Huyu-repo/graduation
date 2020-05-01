@@ -64,7 +64,7 @@ public class AIConstant {
 		props = new Properties();
 		InputStream in = null;
 		try {
-			in = AIConstant.class.getClassLoader().getResourceAsStream("xai-constant.properties");
+			in = AIConstant.class.getClassLoader().getResourceAsStream("huyu-constant.properties");
 			props.load(in);
 			BD_FACE_APPID=props.getProperty("BD_FACE_APPID");
 			BD_FACE_APPKEY=props.getProperty("BD_FACE_APPKEY");
@@ -84,14 +84,14 @@ public class AIConstant {
 			AUTH_CODE=props.getProperty("AUTH_CODE");
 			EMAIL_ADDRESS=props.getProperty("EMAIL_ADDRESS");
 		} catch (Exception e) {
-			logger.error("加载失败xai-constant.properties "+e.getMessage());
+			logger.error("加载失败huyu-constant.properties "+e.getMessage());
 		} finally {
 		 try {
                 if(null != in) {
                     in.close();
                 }
             } catch (Exception e) {
-                logger.error("xai-constant.properties文件流关闭出现异常"+e.getMessage());
+                logger.error("huyu-constant.properties文件流关闭出现异常"+e.getMessage());
             }
 		}
 	}

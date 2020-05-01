@@ -9,7 +9,7 @@
 <html>
 <head>
     <base href="<%=basePath%>">
-    <title>XAI</title>
+    <title>糊鱼</title>
     <jsp:include page="/common/header.jsp"></jsp:include>
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="cache-control" content="no-cache">

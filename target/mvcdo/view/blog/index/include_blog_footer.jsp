@@ -7,7 +7,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <c:set var="ctx" value="<%=request.getContextPath() %>"/>
   <head>
     <base href="<%=basePath%>">
-    <title>XAI</title>
+    <title>糊鱼</title>
     <jsp:include page="/common/header.jsp"></jsp:include>
     <jsp:include page="/common/blog_header.jsp"></jsp:include>
 	<meta http-equiv="pragma" content="no-cache">

@@ -106,11 +106,10 @@
             dataType: "json",//预期服务器返回的数据类型
             success: function (data) {
                 console.log(data);
-                var griddata = "<table class='data-view-table'>";
+                var griddata='<br>';
                 for (var i = 0; i < data.words_result.length; i++) {
-                    griddata += "<tr>" + "<td>" + JSON.stringify(data.words_result[i]) + "</td>" + "</tr>";
+                    griddata += data.words_result[i].words;
                 }
-                griddata = griddata + "</table>";
                 $("#resultOcr").html(griddata);
             }
         };

@@ -7,7 +7,7 @@
 <c:set var="ctx" value="<%=request.getContextPath() %>"/>
 <head>
     <base href="<%=basePath%>">
-    <title>XAI</title>
+    <title>糊鱼</title>
     <jsp:include page="/common/header.jsp"></jsp:include>
     <jsp:include page="/common/blog_header.jsp"></jsp:include>
     <meta http-equiv="pragma" content="no-cache">
@@ -95,7 +95,25 @@
             border-radius: 50%;
             opacity: .5;
         }
+
+        #icrbox{
+            list-style-type: none;
+            visibility: hidden;
+            margin: 0;
+            padding: 0;
+        }
     </style>
+    <script>
+        function change(){
+            var icrbox = document.getElementById("icrbox");
+            icrbox.style.visibility = 'visible';
+        }
+        function reback(){
+            var icrbox = document.getElementById("icrbox");
+            icrbox.style.visibility = 'hidden';
+        }
+    </script>
+
 </head>
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
     <div class="container">
@@ -106,10 +124,15 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="<%=basePath%>">主页</a></li>
                 <li><a href="<%=basePath%>rest/face/index">人脸检测</a></li>
-<%--                <li><a href="/bd/icrBD/icrdetect" onclick="noMethod();">图像识别</a></li>--%>
-<%--                <li><a href="/bd/ocrBD/ocrdetect">文字识别</a></li>--%>
-                <li><a href="${ctx}/view/rest/bdIcr.jsp">图像识别</a></li>
-<%--                <li><a href="<%=basePath%>ai/baidu/ocr">文字识别</a></li>--%>
+                <li><a id="icrlist" href="${ctx}/view/rest/bdIcr.jsp" onmouseover="change()">图像识别</a>
+                    <ul id="icrbox" onmouseover="change()" onmouseout="reback()">
+                        <li><a href="${ctx}/view/rest/carIcr.jsp">车型识别</a></li>
+                        <li><a href="${ctx}/view/rest/locationIcr.jsp">地标识别</a></li>
+                        <li><a href="${ctx}/view/rest/plantIcr.jsp">植物识别</a></li>
+                        <li><a href="${ctx}/view/rest/dishIcr.jsp">菜品识别</a></li>
+                        <li><a href="${ctx}/view/rest/moneyIcr.jsp">货币识别</a></li>
+                    </ul>
+                </li>
                 <li><a href="${ctx}/view/rest/bdOcr.jsp">文字识别</a></li>
             </ul>
         </div>

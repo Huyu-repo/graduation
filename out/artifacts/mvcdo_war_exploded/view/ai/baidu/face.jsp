@@ -131,7 +131,7 @@ var prefix = "<%=basePath%>";
 					},
 					{
 						field : 'faceProbability',
-						title : '置信度',
+						title : '相似度',
 						width:50
 					},
 					{

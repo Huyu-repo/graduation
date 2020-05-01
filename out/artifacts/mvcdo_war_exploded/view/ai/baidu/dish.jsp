@@ -136,7 +136,7 @@ var prefix = "<%=basePath%>";
 						}
 					},{
 						field : 'probability',
-						title : '置信度',
+						title : '相似度',
 						width:110
 					},{
 						field : 'enterType',

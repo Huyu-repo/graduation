@@ -8,15 +8,15 @@ import java.util.List;
  * <p>Description: 菜品识别Bean 增加百科内容</p>
  */
 public class BDICRDishBean {
-	private long log_id;
+	private String log_id;
 	private Integer result_num;
 	private List<Result> result;
 	
-	public long getLog_id() {
+	public String getLog_id() {
 		return log_id;
 	}
 
-	public void setLog_id(long log_id) {
+	public void setLog_id(String log_id) {
 		this.log_id = log_id;
 	}
 

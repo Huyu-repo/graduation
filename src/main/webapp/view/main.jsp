@@ -33,7 +33,7 @@
                         <span><img alt="管理系统" class="img-circle" height="60" width="60"
                                    src="<%=basePath%>image/logo.png"/></span>
                         <h3 class="" style="color: #ffffff">
-                            糊鱼图像识别及博客管理系统
+                            后台管理系统
                         </h3>
                     </div>
                     <div class="dropdown profile-element hidden ">

@@ -7,9 +7,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import cn.xsshome.mvcdo.pojo.ai.baidu.dbo.BDICRDishDO;
+import cn.xsshome.mvcdo.pojo.ai.baidu.po.BDICRDishBean;
+import cn.xsshome.mvcdo.pojo.ai.baidu.po.BDOCRGeneralBean;
 import cn.xsshome.mvcdo.service.ai.baidu.BDOCRService;
 import cn.xsshome.mvcdo.util.*;
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -61,16 +65,39 @@ public class BDOCRControllerFe {
 		String result = PictureUtil.request(httpUrl, httpArg);
 		logger.info("=====接口返回的内容:"+result);
 		JSONObject jsonResult = JSON.parseObject(result);
-
-//		HashMap<String, String> map = getHashMapByJson(jsonResult);
-//		Collection<String> values = map.values();
-//		Iterator<String> iterator2 = ((Collection) values).iterator();
-//		while (iterator2.hasNext()) {
-//			logger.info("iterator2.next() + ", "");
-//		}
-
+		BDOCRGeneralBean bdocrGeneralBean = com.alibaba.fastjson.JSONObject.parseObject(jsonResult.toString(), BDOCRGeneralBean.class);
+		logger.info("jsonResult======="+jsonResult);
+		BDOCRGeneralBean.WordsResult result1 = new BDOCRGeneralBean.WordsResult();
+		List<BDOCRGeneralBean.WordsResult> list = new ArrayList<BDOCRGeneralBean.WordsResult>();
+		JSONArray majar = jsonResult.getJSONArray("words_result");
+		String words="";
+		for(int i=0;i<majar.size();i++){
+			words += majar.getJSONObject(i).get("words");
+		}
+		result1.setWords(words);
+		list.add(result1);
+		bdocrGeneralBean.setWords_result(list);
+		saveResultDishData(bdocrGeneralBean);
 		return jsonResult;
+	}
 
+
+	private void saveResultDishData(BDOCRGeneralBean bdocrGeneralBean) {
+		String resultData="";
+		BDOCRGeneralDO bdocrGeneralDO= new BDOCRGeneralDO();
+		bdocrGeneralDO.setOpenId("web");
+//            bdicrDishDO.setNikeName(nickName);
+		bdocrGeneralDO.setLogId(bdocrGeneralBean.getLog_id());
+		bdocrGeneralDO.setWordsResultNum(bdocrGeneralBean.getWords_result_num());
+		bdocrGeneralDO.setApiType("generalOCR");
+		String words="";
+		for (int i=0;i<bdocrGeneralBean.getWords_result().size();i++){
+			words+=bdocrGeneralBean.getWords_result().get(i).getWords();
+		}
+		bdocrGeneralDO.setWords(words);
+		bdocrGeneralDO.setOpenId("web");
+		int result = bdocrDetectService.saveOcrGeneral(bdocrGeneralDO);
+		logger.info("====保存成功了："+result);
 	}
 
 

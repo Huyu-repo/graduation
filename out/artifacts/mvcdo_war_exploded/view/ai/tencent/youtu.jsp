@@ -136,7 +136,7 @@ var prefix = "<%=basePath%>";
 						width:80
 					},{
 						field : 'confidence',
-						title : '手势置信度',
+						title : '手势相似度',
 						width:80
 					},{
 						field : 'age',
